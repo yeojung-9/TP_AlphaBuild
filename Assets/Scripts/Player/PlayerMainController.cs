@@ -63,7 +63,7 @@ public class PlayerMainController : MonoBehaviour
         logic = new LogicController(transform.forward, this, controller);
         cc = new CrowdControlController();
         physics = new PhysicsController(transform, controller);
-        skill = new SkillController(this);
+        //skill = new SkillController(this);
 
         updaters.Add(fsm);
         updaters.Add(cc);

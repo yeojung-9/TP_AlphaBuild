@@ -174,17 +174,17 @@ public class LocomotionState : State
             next = Type.Wall;
             return true;
         }
-        else if (Input.GetKeyDown(KeyBind.basicSkill))
-        {
-            if (player.DoSkill(KeyBind.Action.BasicSkill))
-            {
-                player.TurnImmediately(h, v);
-                player.anim.SetTrigger("BasicSkill");
-
-                next = Type.Attack;
-                return true;
-            }
-        }
+        //else if (Input.GetKeyDown(KeyBind.basicSkill))
+        //{
+        //    if (player.DoSkill(KeyBind.Action.BasicSkill))
+        //    {
+        //        player.TurnImmediately(h, v);
+        //        player.anim.SetTrigger("BasicSkill");
+        //
+        //        next = Type.Attack;
+        //        return true;
+        //    }
+        //}
         //else if (Input.GetKeyDown(KeyBind.interact))
         //{
         //    next = Type.Interact;
