@@ -1,4 +1,5 @@
 using Cinemachine;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,16 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMainController : MonoBehaviour
 {
+    [Flags]
+    public enum Morph
+    {
+        NONE            = 0,
+        LEFT_HAND       = 1 << 0,
+        RIGHT_HAND      = 1 << 1,
+        BACK            = 1 << 2,
+        LEGS            = 1 << 3,
+    }
+
     public Transform vCamera;
     public GameObject temp_weaponTrail;
 
@@ -23,7 +34,7 @@ public class PlayerMainController : MonoBehaviour
 
     public Transform skillPosition; //TODO: 무기마다, 또 적절한 위치 전부 List나 뭐 어떻게 저장할수 있어야할듯.
 
-    public int currentMorphIdx = 1; //TODO: 0으로 바꾸고 무기 변신 시스템 설정할 것.
+    public Morph currentMorph = Morph.NONE;
 
     List<IUpdater> updaters = new List<IUpdater>();
 

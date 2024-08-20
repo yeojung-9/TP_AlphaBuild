@@ -30,7 +30,7 @@ public class SkillController
         this.player = player;
 
         //TODO: morph 번호 설정 후 교체할 것. unarmed(0) 포함.
-        skills.Add(1, new SkillDictionary());
+        skills.Add(0, new SkillDictionary());
         skills[1].Add(SkillList.Basic_Ground, 0);
     }
 
@@ -79,7 +79,7 @@ public class SkillController
     {
         int trySkillIdx = -1;
 
-        int currentMorph = player.currentMorphIdx;
+        int currentMorph = (int)player.currentMorph;
         SkillList currentSkill = SkillList.Basic_Ground;
 
         switch (input)
