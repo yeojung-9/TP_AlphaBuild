@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GimmickTrigger : MonoBehaviour
+public abstract class GimmickTrigger : MonoBehaviour
 {
-   
-  
+    public bool isTriggered;
+
 }

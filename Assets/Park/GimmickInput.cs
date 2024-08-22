@@ -6,12 +6,35 @@ using UnityEngine.Events;
 
 public class GimmickInput : MonoBehaviour
 {
-    public List<GimmickTrigger> Trigger;
+    public List<GimmickTrigger> Triggers;
+    
+    
+
     [Serializable]
     public class SimpleEvent : UnityEvent { }
 
     // 인스펙터에서 호출할 수 있는 이벤트
     public SimpleEvent OutputEvent;
+
+
+    private void Update()
+    {
+        if (Triggers.Count < 2)
+        {
+            //트리거가 1개일때 
+            for (int i = 0; i < Triggers.Count; i++)
+            {
+                if (Triggers[i].isTriggered)
+                {
+                    InvokeEvent();
+                }
+            }
+        }
+        else
+        { 
+            //트리거가 2개 이상일때
+        }
+    }
 
     public void InvokeEvent()
     {
@@ -22,4 +45,6 @@ public class GimmickInput : MonoBehaviour
             OutputEvent.Invoke();
         }
     }
+
+
 }
