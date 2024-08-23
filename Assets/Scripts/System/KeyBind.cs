@@ -54,8 +54,8 @@ public static class KeyBind
         keys[Action.Weapon_Four] = KeyCode.Alpha4;
 
         keys[Action.Sprint] = KeyCode.LeftShift;
-        keys[Action.Jump] = KeyCode.V;
-        keys[Action.Roll] = KeyCode.Space;
+        keys[Action.Jump] = KeyCode.Space;
+        keys[Action.Roll] = KeyCode.LeftAlt;
         keys[Action.Dash] = KeyCode.LeftControl;
 
         keys[Action.Interact] = KeyCode.F;
