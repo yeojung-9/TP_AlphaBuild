@@ -27,6 +27,7 @@ public class GimmickInput : MonoBehaviour
                 if (Triggers[i].isTriggered)
                 {
                     InvokeEvent();
+                    Triggers[i].isTriggered = false;
                 }
             }
         }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveObject : MonoBehaviour
+public class MoveObject : GimmickOutput
 {
     public Vector3 targetPos; // 목표 위치
     public Quaternion targetRotation; // 목표 회전
@@ -13,12 +13,13 @@ public class MoveObject : MonoBehaviour
     private Vector3 startPos; // 시작 위치
     private Quaternion startRotation; // 시작 회전
 
-    public void movement()
+    public override void Act()
     {
         // 현재 오브젝트의 위치와 회전을 시작값으로 저장
         startPos = transform.position;
         startRotation = transform.rotation;
 
+        targetPos = transform.position + targetPos;
         // 코루틴 시작
         StartCoroutine(Movement());
     }
@@ -35,9 +36,9 @@ public class MoveObject : MonoBehaviour
 
             // 이동 애니메이션 커브를 이용하여 위치 보간
             float moveCurveValue = moveCurve.Evaluate(t);
-            float newX = targetPos.x != 0 ? Mathf.Lerp(startPos.x, targetPos.x, moveCurveValue) : startPos.x;
-            float newY = targetPos.y != 0 ? Mathf.Lerp(startPos.y, targetPos.y, moveCurveValue) : startPos.y;
-            float newZ = targetPos.z != 0 ? Mathf.Lerp(startPos.z, targetPos.z, moveCurveValue) : startPos.z;
+            float newX =  Mathf.Lerp(startPos.x, targetPos.x, moveCurveValue);
+            float newY =  Mathf.Lerp(startPos.y,  targetPos.y, moveCurveValue);
+            float newZ =  Mathf.Lerp(startPos.z,  targetPos.z, moveCurveValue);
             transform.position = new Vector3(newX, newY, newZ);
 
             // 회전 애니메이션 커브를 이용하여 회전 보간
@@ -53,9 +54,9 @@ public class MoveObject : MonoBehaviour
 
         // 이동 및 회전 완료 후 정확한 목표 위치 및 회전으로 설정
         transform.position = new Vector3(
-            targetPos.x != 0 ? targetPos.x : startPos.x,
-            targetPos.y != 0 ? targetPos.y : startPos.y,
-            targetPos.z != 0 ? targetPos.z : startPos.z
+           targetPos.x ,
+           targetPos.y ,
+           targetPos.z 
         );
         transform.rotation = targetRotation;
     }

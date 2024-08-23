@@ -39,6 +39,10 @@ public class Crash_Gimmick : GimmickTrigger
             if (timer >= delayTime)
             {
                 Debug.Log(delayTime + " 초 만큼 기다린 후 감지함");
+                if (isTriggered)
+                {
+                    return;
+                }
                 isTriggered = true;
             }
             else

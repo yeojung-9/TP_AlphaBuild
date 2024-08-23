@@ -36,6 +36,10 @@ public class Interaction_Gimmick : GimmickTrigger
             // 화면 좌표를 UI 좌표로 변환
             InteractionImge.position = screenPos;
         }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            isTriggered = true;
+        }
     }
     private void OnTriggerExit(Collider other)
     {
